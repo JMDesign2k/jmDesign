@@ -3120,3 +3120,29 @@ details-disclosure > details {
 .rte blockquote > * {
   margin: -0.5rem 0 -0.5rem 0;
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Animations */
+  .scroll-trigger--active.animate--slide-in {
+    animation: slideIn var(--duration-long) ease-out forwards;
+    transition: opacity var(--duration-long) ease-out;
+    opacity: 0;
+  }
+
+  /* Turn off animations if JS is turned off. */
+  .no-js .scroll-trigger--active {
+    opacity: 1;
+    animation: none;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateY(10vh);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
